@@ -49,5 +49,6 @@ class Api::V1::ItemsController < Api::V1::ApplicationController
 
   def item_errors(item)
     render json: { errors: item.errors }, status: 400
+    false
   end
 end

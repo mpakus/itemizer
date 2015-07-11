@@ -1,9 +1,19 @@
 angular.module('itemsApp').controller 'ItemsController', [
-  '$rootScope', '$scope', '$stateParams', 'ItemService'
-  ($rootScope, $scope, $stateParams, ItemService)->
+  '$scope', '$stateParams', 'ItemService'
+  ($scope, $stateParams, ItemService)->
+    # error handlers
+    prepErrors = (errors)->
+      errList = []
+      angular.forEach errors, (errors, field) ->
+        errList.push [field, errors.join(', ')]
+      errList
+
+    errorAllHandler  = (result, code)-> console.error result, code
+    errorAddHandler  = (result, code)-> $scope.new_item.errors  = prepErrors(result.errors)
+    errorEditHandler = (result, code)-> $scope.edit_item.errors = prepErrors(result.errors)
+
     # init
-    errorHandler    = (msg, code)-> console.warn '***', msg, code
-    itemModel       = new ItemService(errorHandler)
+    itemModel       = new ItemService(errorAllHandler, errorAddHandler, errorEditHandler)
     itemCopy        = {}
     $scope.addFile  = null
 
@@ -11,14 +21,12 @@ angular.module('itemsApp').controller 'ItemsController', [
     $scope.initNewItem  = -> $scope.new_item  = {}
     $scope.initEditItem = -> $scope.edit_item = {}
 
-    $scope.itemPicture = (item)-> item.picture
-
     $scope.addItem = ->
       itemModel.create($scope.new_item).then (item)->
         $scope.items.push(item)
         $scope.initNewItem()
 
-    $scope.deleteItem = (item)->
+    $scope.deleteItem     = (item)->
       if confirm('Are you sure?')
         itemModel.delete(item).then (res)->
           $scope.items.splice($scope.items.indexOf(item), 1)
@@ -27,7 +35,7 @@ angular.module('itemsApp').controller 'ItemsController', [
 
     $scope.cancelEditItem = -> $scope.initEditItem()
 
-    $scope.saveItem       = ->
+    $scope.saveItem = ->
       itemModel.update($scope.edit_item).then (item)->
         $scope.initEditItem()
         for _item in $scope.items

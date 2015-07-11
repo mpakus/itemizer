@@ -5,6 +5,9 @@ body{
   padding: 20px 0px;
 }
 
+th.id-control{
+  width: 60px;
+}
 th.image-control{
   width: 150px;
 }
@@ -16,7 +19,6 @@ th.btn-control{
   position: relative;
   overflow: hidden;
 }
-
 .btn-file input[type=file] {
   position: absolute;
   top: 0;
@@ -33,6 +35,10 @@ th.btn-control{
   display: block;
 }
 
+.full-width{
+  width: 100% !important;
+}
+
 td{
   .view{ display: block; }
   .edit{ display: none; }
@@ -47,22 +53,9 @@ td{
   line-height: 150px;
 }
 
-// ng animations
-.view-slide-in.ng-enter {
-  opacity: 0;
-}
-.view-slide-in.ng-enter.ng-enter-active {
-  top:0;
-  left:0;
-  opacity: 1;
-}
-.view-slide-in.ng-leave.ng-leave-active{
-  top:5px;
-  left:5px;
-  opacity:1;
-}
-.view-slide-in.ng-leave{
-  top:0;
-  left:0;
-  opacity:0;
+.alert{
+  clear: both;
+  display: block;
+  overflow: hidden;
+  margin-top: 15px;
 }
