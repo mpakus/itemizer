@@ -1,0 +1,11 @@
+<div class="row">
+  <form enctype="multipart/form-data" class="form-inline" ng-submit="addItem()">
+    <div class="form-group col-lg-8">
+      <input type="text" name="name" required="required" class="form-control" ng-model="new_item.name" />
+      <span class="btn btn-primary btn-file">
+        <span class="glyphicon glyphicon-camera"></span><input type="file" name="picture" />
+      </span>
+      <button class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></button>
+    </div>
+  </form>
+</div>

@@ -4,21 +4,16 @@
   <title>Itemizer</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript">
-    window.token = '<%= form_authenticity_token %>';
-  </script>
 </head>
 <body>
   <div class="container">
-    <header>
-    </header>
+    <header></header>
 
     <article ui-view-container>
       <section ui-view autoscroll="false"></section>
     </article>
 
-    <footer class="footer">
-    </footer>
+    <footer></footer>
   </div>
 
   <%= javascript_include_tag 'application' %>

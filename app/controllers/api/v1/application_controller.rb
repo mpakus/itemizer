@@ -3,6 +3,7 @@ class Api::V1::ApplicationController < ActionController::Metal
   include ActionController::Renderers::All
   include ActionController::ConditionalGet
   include ActionController::Caching
+  include ActionController::StrongParameters
   # include ActionController::EtagWithTemplateDigest
   # include ActionController::RackDelegation
   # include ActionController::MimeResponds

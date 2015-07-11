@@ -12,7 +12,7 @@ describe 'Requests to /api/v1/items.json' do
   end
 
   context 'with GET' do
-    before :all do
+    before :each do
       @items = create_list(:item, 5)
     end
 
@@ -43,7 +43,7 @@ describe 'Requests to /api/v1/items.json' do
 
     it 'with name' do
       name = 'Sub-Zero'
-      post url, format: :json, name: name
+      post url, format: :json, item: { name: name }
 
       expect(response).to     be_success
       expect(json['id']).to   be_present
@@ -58,7 +58,7 @@ describe 'Requests to /api/v1/items.json' do
 
     it 'name' do
       new_name = 'Scorpion'
-      patch item_path(@items[3]), format: :json, name: new_name
+      patch item_path(@items[3]), format: :json, item: { name: new_name }
 
       expect(json['id']).to   be_present
       expect(json['name']).to eq new_name
