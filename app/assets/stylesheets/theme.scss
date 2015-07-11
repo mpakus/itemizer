@@ -5,6 +5,9 @@ body{
   padding: 20px 0px;
 }
 
+th.image-control{
+  width: 150px;
+}
 th.btn-control{
   width: 80px;
 }
@@ -37,4 +40,29 @@ td{
 .editing{
   .view{ display: none; }
   .edit{ display: block; }
+}
+.image-replace{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+}
+
+// ng animations
+.view-slide-in.ng-enter {
+  opacity: 0;
+}
+.view-slide-in.ng-enter.ng-enter-active {
+  top:0;
+  left:0;
+  opacity: 1;
+}
+.view-slide-in.ng-leave.ng-leave-active{
+  top:5px;
+  left:5px;
+  opacity:1;
+}
+.view-slide-in.ng-leave{
+  top:0;
+  left:0;
+  opacity:0;
 }

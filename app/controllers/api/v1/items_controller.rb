@@ -1,5 +1,5 @@
 class Api::V1::ItemsController < Api::V1::ApplicationController
-  rescue_from   ActiveRecord::RecordNotFound, with: :item_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :item_not_found
   before_action :set_item, only: [:destroy, :show, :update]
 
   def index
@@ -29,7 +29,7 @@ class Api::V1::ItemsController < Api::V1::ApplicationController
 
   def destroy
     @item.destroy
-    render json: {msg: 'ok'}
+    render json: { msg: 'ok' }
   end
 
   private
@@ -39,15 +39,15 @@ class Api::V1::ItemsController < Api::V1::ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :picture_id)
+    params.require(:item).permit(:name, :picture)
   end
 
   def item_not_found
-    render json: {error: 'item not found'}, status: 404
+    render json: { error: 'item not found' }, status: 404
     false
   end
 
   def item_errors(item)
-    render json: {errors: item.errors}, status: 400
+    render json: { errors: item.errors }, status: 400
   end
 end

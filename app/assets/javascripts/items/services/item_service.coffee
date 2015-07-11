@@ -12,7 +12,13 @@ angular.module('itemsApp').factory 'ItemService', ["$http", "$q", ($http, $q)->
 
     create: (item)->
       deferred = $q.defer()
-      $http.post("/api/v1/items.json", {item: {name: item.name, picture_id: item.picture_id}}).success (data)->
+      form     = new FormData()
+      form.append 'item[picture]', item.picture
+      form.append 'item[name]',    item.name
+      $http.post("/api/v1/items.json", form, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      }).success (data)->
         deferred.resolve(data)
       .error @errorCallback
       deferred.promise
@@ -26,9 +32,19 @@ angular.module('itemsApp').factory 'ItemService', ["$http", "$q", ($http, $q)->
 
     update: (item)->
       deferred = $q.defer()
-      $http.patch("/api/v1/items/#{item.id}.json", {item: {name: item.name}}).success (data)->
+      form     = new FormData()
+      form.append 'item[picture]', item.picture if item.picture?
+      form.append 'item[name]',    item.name
+      $http.patch("/api/v1/items/#{item.id}.json", form, {
+        transformRequest: angular.identity,
+        headers: {'Content-Type': undefined}
+      }).success (data)->
         deferred.resolve(data)
       .error @errorCallback
+
+#      $http.patch("/api/v1/items/#{item.id}.json", {item: {name: item.name}}).success (data)->
+#        deferred.resolve(data)
+#      .error @errorCallback
       deferred.promise
 
 ]

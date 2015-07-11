@@ -7,33 +7,38 @@
   <tr>
     <th>#</th>
     <th>&nbsp;</th>
-    <th>Name</th>
+    <th class="image-control">Name</th>
     <th class="btn-control">&nbsp;</th>
     <th class="btn-control">&nbsp;</th>
   </tr>
-  <tr ng-repeat="item in items" ng-class="{editing: item == edit_item}">
+  <tr ng-repeat="item in items" ng-class="{editing: item.id == edit_item.id}">
 
     <td>{{item.id}}</td>
 
     <td>
       <span class="view">
-        <img ng-src="{{item.picture.thumb.url}}" ng-show="item.picture && item.picture.url" />
+        <img ng-src="{{item.picture}}" ng-show="item.picture" />
+      </span>
+      <span class="edit">
+        <span class="btn btn-primary btn-file image-replace">
+          <span class="glyphicon glyphicon-camera"></span><input type="file" name="picture" file-model="edit_item.picture" />
+        </span>
       </span>
     </td>
 
     <td>
       <span class="view" ng-dblclick="editItem(item)">{{item.name}}</span>
-      <span class="edit"><input type="text" class="form-control" name="name" ng-model="item.name" ng-keyup="$event.keyCode == 13 && saveItem(item)" /></span>
+      <span class="edit"><input type="text" class="form-control" name="name" ng-model="edit_item.name" ng-keyup="$event.keyCode == 13 && saveItem(item)" /></span>
     </td>
 
     <td>
       <span class="view"><button class="btn btn-primary" title="Edit" ng-click="editItem(item)"><i class="glyphicon glyphicon-pencil"></i></button></span>
-      <span class="edit"><button class="btn btn-success" title="Save" ng-click="saveItem(item)"><i class="glyphicon glyphicon-ok"></i></button></span>
+      <span class="edit"><button class="btn btn-success" title="Save" ng-click="saveItem()"><i class="glyphicon glyphicon-ok"></i></button></span>
     </td>
 
     <td>
       <span class="view"><button class="btn btn-danger"  title="Delete" ng-click="deleteItem(item)"><i class="glyphicon glyphicon-trash"></i></button></span>
-      <span class="edit"><button class="btn btn-warning" title="Cancel" ng-click="cancelEditItem(item)"><i class="glyphicon glyphicon-remove"></i></button></span>
+      <span class="edit"><button class="btn btn-warning" title="Cancel" ng-click="cancelEditItem()"><i class="glyphicon glyphicon-remove"></i></button></span>
     </td>
   </tr>
 </table>
