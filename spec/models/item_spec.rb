@@ -19,11 +19,5 @@ describe Item, type: :model do
       item.valid?
       expect(item.errors[:name]).to include 'is too long (maximum is 255 characters)'
     end
-
-    it 'check picture limits' do
-      item = build(:item, picture: 'hello'*300)
-      item.valid?
-      expect(item.errors[:picture]).to include 'is too long (maximum is 255 characters)'
-    end
   end
 end

@@ -6,7 +6,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div id="wrap" ui-view autoscroll="false"></div>
+  <div class="container">
+    <header></header>
+
+    <article ui-view-container>
+      <section ui-view autoscroll="false"></section>
+    </article>
+
+    <footer></footer>
+  </div>
+
   <%= javascript_include_tag 'application' %>
 </body>
 </html>

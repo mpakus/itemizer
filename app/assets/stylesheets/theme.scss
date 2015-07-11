@@ -1,0 +1,61 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  padding: 20px 0px;
+}
+
+th.id-control{
+  width: 60px;
+}
+th.image-control{
+  width: 150px;
+}
+th.btn-control{
+  width: 80px;
+}
+
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+
+.full-width{
+  width: 100% !important;
+}
+
+td{
+  .view{ display: block; }
+  .edit{ display: none; }
+}
+.editing{
+  .view{ display: none; }
+  .edit{ display: block; }
+}
+.image-replace{
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+}
+
+.alert{
+  clear: both;
+  display: block;
+  overflow: hidden;
+  margin-top: 15px;
+}

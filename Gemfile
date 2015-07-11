@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sprockets', '2.12.3'
 
 gem 'puma'
 gem 'bootstrap-sass', '~> 3.3.5'

@@ -1,0 +1,22 @@
+<div class="row">
+  <form enctype="multipart/form-data" class="form-inline" ng-submit="addItem()">
+    <div class="form-group col-lg-6">
+      <div class="col-lg-1">
+      <span class="btn btn-primary btn-file">
+        <span class="glyphicon glyphicon-camera"></span><input type="file" name="picture" file-model="new_item.picture" />
+      </span>
+      </div>
+      <div class="col-lg-10">
+        <input type="text" name="name" placeholder="Name" class="form-control full-width" ng-model="new_item.name" />
+      </div>
+      <div class="col-lg-1">
+        <button class="btn btn-success"><i class="glyphicon glyphicon-ok"></i></button>
+      </div>
+    </div>
+  </form>
+</div>
+<div ng-show="new_item.errors" class="alert alert-danger">
+  <div ng-repeat="error in new_item.errors">
+    <strong>{{error[0] | uppercase}}</strong> - {{error[1]}}
+  </div>
+</div>

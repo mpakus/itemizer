@@ -3,6 +3,22 @@ Itemizer
 
 Rails scaffolding example with AngularJS
 
+Install
+-------
+
+> rake db:create
+> rake db:migrate
+> rake db:seed
+> rake bower:install
+> rails s
+
+open browser and enjoy ;)
+
+Tests
+=====
+
+> rspec
+
 ---
 
 Необходимо реализовать проект с одной моделью Item, которая имет 2 поля: name (название) и picture (файл-картинка). 
