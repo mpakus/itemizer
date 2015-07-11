@@ -32,3 +32,5 @@ bower.json
 
 .idea/*
 /public/uploads/*
+
+npm-debug.log
