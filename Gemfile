@@ -15,6 +15,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bower-rails', '~> 0.10.0'
 gem 'angular-rails-templates'
 gem 'angular_rails_csrf'
+gem 'mini_magick'
+gem 'carrierwave'
 
 group :development do
   gem 'better_errors'

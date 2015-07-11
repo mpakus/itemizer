@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html ng-app="itemsApp">
+<head>
+  <title>Itemizer</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="wrap" ui-view autoscroll="false"></div>
+  <%= javascript_include_tag 'application' %>
+</body>
+</html>
